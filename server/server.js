@@ -1481,6 +1481,24 @@
     	},
     	orders: {
     	},
+        myNews: {
+            "1240549d-f0e0-497e-ab99-eb8f703713d7": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			title: "Black Widow",
+    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
+    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
+    			_createdOn: 1614935055353,
+    			_id: "1240549d-f0e0-497e-ab99-eb8f703713d7"
+    		},
+            "143e5265-333e-4150-80e4-16b61de31aa0": {
+    			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
+    			title: "Black Widow",
+    			description: "Natasha Romanoff aka Black Widow confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises. Comes on the screens 2020.",
+    			img: "https://miro.medium.com/max/735/1*akkAa2CcbKqHsvqVusF3-w.jpeg",
+    			_createdOn: 1614935055353,
+    			_id: "143e5265-333e-4150-80e4-16b61de31aa0"
+    		},
+        },
     	movies: {
     		"1240549d-f0e0-497e-ab99-eb8f703713d7": {
     			_ownerId: "847ec027-f659-4086-8032-5173e2f9c93a",
