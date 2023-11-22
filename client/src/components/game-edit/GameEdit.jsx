@@ -18,7 +18,10 @@ export default function GameEdit() {
     const createGameSubmitHandler = async (values) => {
         try {
             await gameService.edit(gameId, values);
-            navigate('/games');
+
+            window.scrollTo(0, 0);
+
+            navigate(`/games/${gameId}`);
         } catch (err) {
             console.log(err);
         }
