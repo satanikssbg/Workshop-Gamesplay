@@ -8,10 +8,9 @@ export default function GameList() {
 
     useEffect(() => {
         gameService.getAll()
-            .then(result => setGames(result));
+            .then(result => setGames(result))
+            .catch(error => console.log(error));
     }, []);
-
-    console.log(games);
 
     return (
         <section id="catalog-page">
@@ -21,7 +20,7 @@ export default function GameList() {
                 <GameListItem key={game._id} {...game} />
             ))}
 
-            {games.length === 0 && (<h3 className="no-articles">No articles yet</h3>)}
+            {games.length === 0 && (<h3 className="no-articles">No games yet</h3>)}
         </section>
     );
 }

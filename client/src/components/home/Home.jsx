@@ -1,4 +1,10 @@
-export default function Home() {
+import withAuth from "../../HOC/withAuth";
+
+function Home({
+    _id,
+    email
+}) {
+    console.log(email);
     return (
         <section id="welcome-world">
             <div className="welcome-message">
@@ -69,3 +75,5 @@ export default function Home() {
         </section>
     );
 }
+
+export default withAuth(Home);

@@ -1,6 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 
 import { AuthProvider } from './contexts/authContext';
+
 import Path from './paths';
 
 import Header from "./components/header/Header";
