@@ -4,7 +4,6 @@ function Home({
     _id,
     email
 }) {
-    console.log(email);
     return (
         <section id="welcome-world">
             <div className="welcome-message">
@@ -71,6 +70,7 @@ function Home({
                 </div>
 
                 <p className="no-articles">No games yet</p>
+                {email}
             </div>
         </section>
     );
