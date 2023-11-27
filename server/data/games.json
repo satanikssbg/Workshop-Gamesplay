@@ -1,10 +1,12 @@
-{
-    "4d89a13f-6335-4dd6-a411-8ebfd8bc6bc1": {
-        "title": "Test game",
-        "category": "RPG",
-        "maxLevel": "112",
-        "imageUrl": "https://media.gq-magazine.co.uk/photos/645b5c3c8223a5c3801b8b26/16:9/w_2560%2Cc_limit/100-best-games-hp-b.jpg",
-        "summary": "Wow1",
-        "_id": "4d89a13f-6335-4dd6-a411-8ebfd8bc6bc1"
+[
+    {
+        "_ownerId": "35c62d76-8152-4626-8712-eeb96381bea8",
+        "title": "GTA V",
+        "category": "Action",
+        "maxLevel": "99",
+        "imageUrl": "https://assetsio.reedpopcdn.com/gta-5-artwork_dH0CKFq.jpg?width=1600&height=900&fit=crop&quality=100&format=png&enable=upscale&auto=webp",
+        "summary": "Grand Theft Auto V е най-голямата екшън-приключенска игра с отворен свят, разработена от Rockstar North. ",
+        "_createdOn": 1701110034281,
+        "_id": "c76127a3-0698-444f-972b-eefe8b4d97c7"
     }
-}
+]

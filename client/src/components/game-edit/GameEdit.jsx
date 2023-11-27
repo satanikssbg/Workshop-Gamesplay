@@ -6,8 +6,16 @@ import { useEffect, useState } from 'react';
 
 export default function GameEdit() {
     const navigate = useNavigate();
+
     const { gameId } = useParams();
-    const [game, setGame] = useState({});
+
+    const [game, setGame] = useState({
+        title: '',
+        category: '',
+        maxLevel: '',
+        imageUrl: '',
+        summary: ''
+    });
 
     useEffect(() => {
         gameService.getOne(gameId)
@@ -15,7 +23,11 @@ export default function GameEdit() {
     }, [gameId]);
 
 
-    const createGameSubmitHandler = async (values) => {
+    const editGameSubmitHandler = async (e) => {
+        e.preventDefault();
+
+        const values = Object.fromEntries(new FormData(e.currentTarget));
+
         try {
             await gameService.edit(gameId, values);
 
@@ -27,30 +39,37 @@ export default function GameEdit() {
         }
     }
 
-    const { values, onChange, onSubmit } = useForm(createGameSubmitHandler, game);
+    const onChange = (e) => {
+        setGame(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+    };
+
+    //const { values, onChange, onSubmit } = useForm(createGameSubmitHandler, game);
 
     return (
         <section id="create-page" className="auth">
-            <form id="create" onSubmit={onSubmit}>
+            <form id="create" onSubmit={editGameSubmitHandler}>
                 <div className="container">
                     <h1>Edit Game</h1>
 
                     <label htmlFor="leg-title">Legendary title:</label>
-                    <input onChange={onChange} value={values.title} type="text" id="title" name="title" placeholder="Enter game title..." />
+                    <input type="text" id="title" name="title" onChange={onChange} value={game.title} placeholder="Enter game title..." />
 
                     <label htmlFor="category">Category:</label>
-                    <input onChange={onChange} value={values.category} type="text" id="category" name="category" placeholder="Enter game category..." />
+                    <input type="text" id="category" name="category" onChange={onChange} value={game.category} placeholder="Enter game category..." />
 
                     <label htmlFor="levels">MaxLevel:</label>
-                    <input onChange={onChange} value={values.maxLevel} type="number" id="maxLevel" name="maxLevel" min={1} />
+                    <input type="number" id="maxLevel" name="maxLevel" onChange={onChange} value={game.maxLevel} min={1} />
 
                     <label htmlFor="game-img">Image:</label>
-                    <input onChange={onChange} value={values.imageUrl} type="text" id="imageUrl" name="imageUrl" placeholder="Upload a photo..." />
+                    <input type="text" id="imageUrl" name="imageUrl" onChange={onChange} value={game.imageUrl} placeholder="Upload a photo..." />
 
                     <label htmlFor="summary">Summary:</label>
-                    <textarea onChange={onChange} value={values.summary} name="summary" id="summary" />
+                    <textarea name="summary" id="summary" onChange={onChange} value={game.summary} />
 
-                    <input className="btn submit" type="submit" defaultValue="Create Game" />
+                    <input className="btn submit" type="submit" value="Edit game" />
                 </div>
             </form>
         </section>
