@@ -21,23 +21,38 @@ const buildOptions = (data) => {
 };
 
 const request = async (method, url, data) => {
-    const response = await fetch(url, {
-        ...buildOptions(data),
-        method,
-    });
+    try {
+        const response = await fetch(url, {
+            ...buildOptions(data),
+            method,
+        });
 
-    if (response.status === 204) {
-        return {};
+        if (response.status === 204) {
+            return {};
+        }
+
+        if (!response.ok && response.status === 403 && localStorage.getItem("accessToken")) {
+            const result = await response.json();
+
+            if ((result.message === "Invalid access token" || result.message === "User session does not exist") && result.code === 403) {
+                localStorage.removeItem('accessToken');
+
+                if (localStorage.getItem('auth')) {
+                    localStorage.removeItem('auth');
+                }
+            }
+        }
+
+        if (!response.ok) {
+            throw new Error(`HTTP status: ${response.status}`);
+        }
+
+        const result = await response.json();
+
+        return result;
+    } catch (error) {
+        throw new Error(`${error}`);
     }
-    
-
-    const result = await response.json();
-
-    if (!response.ok) {
-        throw result;
-    }
-
-    return result;
 };
 
 export const get = request.bind(null, 'GET');
