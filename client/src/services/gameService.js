@@ -34,12 +34,11 @@ export const remove = async (gameId) => {
 
 export const getLatest = async () => {
     const query = new URLSearchParams({
-        sortBy: `_createdOn desc`,
         offset: 0,
-        pageSize: 3,
+        pageSize: 1,
     });
 
-    const result = await request.get(`${baseUrl}?${query}`);
+    const result = await request.get(`${baseUrl}?sortBy=_createdOn%20desc&${query}`);
 
     return result;
 }
