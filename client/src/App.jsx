@@ -17,6 +17,7 @@ import GameEdit from './components/game-edit/GameEdit';
 import ErrorBoundary from './components/ErrorBoundary';
 import BaseAuthGuard from './components/guards/BaseAuthGuard';
 import AuthGuard from './components/guards/AuthGuard';
+import UploadFirebase from './components/UploadFirebase';
 
 const GameDetails = lazy(() => import('./components/game-details/GameDetails'));
 
@@ -36,6 +37,8 @@ function App() {
 
                             <Route path="/login" element={<Login />} />
                             <Route path="/register" element={<Register />} />
+
+                            <Route path='/upload' element={<UploadFirebase />} />
 
 
                             <Route element={<AuthGuard />}>
